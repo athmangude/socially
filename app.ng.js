@@ -30,8 +30,20 @@ if (Meteor.isClient) {
         }
     });
 
-    angular.module('socially').controller('PartyDetailsController', function($scope, $stateParams){
-        $scope.partyId = $stateParams.partyId;
+    angular.module('socially').controller('PartyDetailsController', function($scope, $stateParams, $meteor){
+        $scope.party = $meteor.object(Parties, $stateParams.partyId, false);
+
+        $scope.save = function(){
+            $scope.party.save().then(function(numberOfDocs){
+                console.log('save successful, docs affected', numberOfDocs);
+            }, function(error){
+               console.log("save error", error);
+            });
+        }
+
+        $scope.reset = function(){
+            $scope.party.reset();
+        }
     });
 }
 

@@ -10,7 +10,7 @@
 
     <ul>
         <li ng-repeat="party in parties">
-            <a href="/parties/{{party.id}}">{{party.name}}</a>
+            <a href="/parties/{{party._id}}">{{party.name}}</a>
             <p>{{party.description}}</p>
             <button ng-click="remove(party)">X</button>
         </li>
