@@ -1,4 +1,4 @@
-<div ng-controller="PartiesListController">
+<!--<div ng-controller="PartiesListController">-->
 
     <form>
         <label>Name</label>
@@ -10,7 +10,7 @@
 
     <ul>
         <li ng-repeat="party in parties">
-            {{party.name}}
+            <a href="/parties/{{party.id}}">{{party.name}}</a>
             <p>{{party.description}}</p>
             <button ng-click="remove(party)">X</button>
         </li>
@@ -18,5 +18,4 @@
 
     <button ng-click="removeAll()">remove all</button>
 
-</div>
-
+<!--</div>-->
